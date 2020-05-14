@@ -16,7 +16,7 @@ function TableComponent({ columns, data }) {
 
     return (
         <Table striped bordered {...getTableProps()}>
-            <thead>
+            <thead className="thead-dark">
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                         {headerGroup.headers.map(column => {
@@ -52,7 +52,7 @@ function TableComponent({ columns, data }) {
                     return (
                         <tr {...row.getRowProps()}>
                             {row.cells.map(cell => {
-                                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td> 
                             })}
                         </tr>
                     );

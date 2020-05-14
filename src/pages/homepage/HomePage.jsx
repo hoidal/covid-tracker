@@ -26,15 +26,15 @@ class HomePage extends Component {
         const formattedDate = new Date(Date.parse(this.state.currentDate)).toLocaleString();
         const columns = [
             {Header: 'Country', accessor: 'Country'},
-            {Header: 'Total Cases', accessor: 'TotalConfirmed'},
-            {Header: 'Total Deaths', accessor: 'TotalDeaths'},
-            {Header: 'New Cases', accessor: 'NewConfirmed'},
-            {Header: 'New Deaths', accessor: 'NewDeaths'},
-            {Header: 'Total Recovered', accessor: 'TotalRecovered'},
-            {Header: 'New Recovered', accessor: 'NewRecovered'}
+            {Header: 'Total Cases', accessor: 'TotalConfirmed',  Cell: props => parseInt(props.value).toLocaleString()},
+            {Header: 'Total Deaths', accessor: 'TotalDeaths', Cell: props => parseInt(props.value).toLocaleString()},
+            {Header: 'New Cases', accessor: 'NewConfirmed', Cell: props => parseInt(props.value).toLocaleString()},
+            {Header: 'New Deaths', accessor: 'NewDeaths', Cell: props => parseInt(props.value).toLocaleString()},
+            {Header: 'Total Recovered', accessor: 'TotalRecovered', Cell: props => parseInt(props.value).toLocaleString()},
+            {Header: 'New Recovered', accessor: 'NewRecovered', Cell: props => parseInt(props.value).toLocaleString()}
         ];
         return (
-            <div>
+            <div style={{width: "80%"}}>
                 <h1>Current Date and Time: {formattedDate === 'Invalid Date' ? null : formattedDate}</h1>
                 <SummaryTable 
                     data={this.state.globalSummary}
